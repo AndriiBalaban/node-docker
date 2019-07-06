@@ -5,17 +5,16 @@ services:
     container_name: node
     volumes:
     - type: bind
-      source: ./src/site
-      target: /var/www/site/
+      source: ./src/project
+      target: /var/www/project/
     - type: bind
       source: ./logs/node-logs
       target: /root/.npm/_logs
-    working_dir: /var/www/site/
+    working_dir: /var/www/project/
     depends_on: 
     - mongo
     ports:
-    - 80:80
-    - 8080:8080
+    - 3000:3000
     command: npm start
   mongo:
     image: mongo
